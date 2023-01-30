@@ -6,13 +6,13 @@
 #    By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:24:02 by yismaail          #+#    #+#              #
-#    Updated: 2023/01/28 23:25:46 by yismaail         ###   ########.fr        #
+#    Updated: 2023/01/30 03:38:06 by yismaail         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	push_swap
 CC			=	cc
-CFLAGS		=	-Werror -Wextra -Wall #-fsanitize=address
+CFLAGS		=	-Werror -Wextra -Wall -fsanitize=address
 RM			=	rm -rf
 SRCS		=	main.c check_args.c check_args_utils.c \
 				initialisation.c utils.c stack.c \

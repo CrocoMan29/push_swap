@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 07:47:11 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/29 16:00:27 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/01/30 04:28:26 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int main (int ac, char **av)
 
 	if (ac < 2)
 		return (0);
-	if (ft_strlen(av[1]) == 0)
-		exit(12);
 	//! leaaaaaaaaaks in input_is_valide
 	input_is_valide(av);
 	big_str = ft_join_all_args(av);

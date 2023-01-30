@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:02:10 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/28 23:25:13 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/01/30 04:31:19 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,9 +63,9 @@ void	free_stack(t_stack **stack)
 
 void	exit_error(t_stack **stack_a, t_stack **stack_b)
 {
-	if (stack_a == NULL && *stack_a != NULL)
+	if (stack_a != NULL && *stack_a != NULL)
 		free_stack(stack_a);
-	if (stack_b == NULL && *stack_b != NULL)
+	if (stack_b != NULL && *stack_b != NULL)
 		free_stack(stack_b);
 	write(2, "ERROR\n", 6);
 	exit(1);
