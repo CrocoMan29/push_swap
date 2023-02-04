@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:52:15 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/29 15:56:59 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:08:55 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,10 @@ t_stack	*stack_new(int value)
 	new = malloc(sizeof * new);
 	new->value = value;
 	new->index = 0;
+	new->pos = -1;
+	new->taret_pos = -1;
+	new->cost_a = -1;
+	new->cost_b = -1;
 	new->next = NULL;
 	return (new);
 }

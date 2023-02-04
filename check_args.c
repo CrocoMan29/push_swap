@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 07:58:27 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/30 04:14:14 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:05:14 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,13 +38,11 @@ void	input_is_valide(char **av)
 
 	while (av[++i])
 	{
-		// if (ft_strlen(av[i]) == 0 || ft_strlen(av[i]) >= 10 )
-		// {
-		// 	ft_free_tab(sub_str);
-		// 	exit(11);
-		// }
 		if (ft_isempty(av[i]) == 1)
+		{
+			write(2, "ERROR\n", 6);
 			exit(101);
+		}
 		sub_str = ft_split(av[i], ' ');
 		j = -1;
 		while (sub_str[++j])
@@ -52,13 +50,16 @@ void	input_is_valide(char **av)
 			if (is_number(sub_str[j]) == 0)
 			{
 				free(sub_str);
-				ft_putstr_fd("ERROR", 2);
+				write(2, "ERROR\n", 6);
 				exit(1);
 			}
 			nb_zero += arg_is_zero(sub_str[j]);
 		}
 		if (nb_zero > 1)
+		{
+			write(2, "ERROR\n", 6);
 			exit(33);
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 09:58:19 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/28 23:23:45 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/04 04:42:01 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,33 @@ t_stack	*fill_stack_by_value(char *str)
 		i++;
 	}
 	return (stack_a);
+}
+
+void	assigne_index(t_stack *stack, int size_stack)
+{
+	t_stack	*ptr;
+	t_stack	*highest;
+	int	value;
+
+	while (--size_stack > 0)
+	{
+		ptr = stack;
+		value = INT_MIN;
+		highest = NULL;
+		while (ptr)
+		{
+			if (ptr->value == INT_MIN && ptr->index == 0)
+				ptr->index = 1;
+			if (ptr->value > value && ptr->index == 0)
+			{
+				value = ptr->value;
+				highest = ptr;
+				ptr = stack;
+			}
+			else
+				ptr = ptr->next;
+		}
+		if (highest != 0)
+			highest->index = size_stack;
+	}
 }

@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 06:45:27 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/28 23:27:35 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/04 02:04:14 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,13 @@
 
 typedef struct s_stack
 {
-	int value;
-	int index;
-	struct s_stack *next;
+	int 			value;
+	int 			index;
+	int				pos;
+	int				taret_pos;
+	int 			cost_a;
+	int				cost_b;
+	struct s_stack	*next;
 }			t_stack;
 
 //* chack input is valide
