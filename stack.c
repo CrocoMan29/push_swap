@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   stack.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
+/*   By: yassir <yassir@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 14:52:15 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/04 02:08:55 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/04 18:06:04 by yassir           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,13 @@ t_stack	*stack_new(int value)
 t_stack *get_tail_of_stack(t_stack *stack)
 {
 	while (stack && stack->next != NULL)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack *get_befor_tail_stack(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->index != NULL)
 		stack = stack->next;
 	return (stack);
 }
