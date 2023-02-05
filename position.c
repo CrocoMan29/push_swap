@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   position.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 06:43:31 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/05 09:16:41 by yismaail         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 
@@ -33,7 +45,7 @@ int get_lowest_index_position(t_stack **stack)
             lowest_index = tmp->index;
             lowest_pos = tmp->pos;
         }
-        tmp = rmp->next;
+        tmp = tmp->next;
     }
     return (lowest_pos);
 }
@@ -78,7 +90,7 @@ void get_target_position(t_stack **a, t_stack **b)
     target_pos = 0;
     while(tmp_b)
     {
-        target_pos = get_target(a, tmp_p->index, INT_MAX, taget_pos);
+        target_pos = get_target(a, tmp_b->index, INT_MAX, target_pos);
         tmp_b->target_pos = target_pos;
         tmp_b = tmp_b->next;
     }

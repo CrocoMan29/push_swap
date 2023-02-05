@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yassir <yassir@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 07:47:11 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/04 18:33:12 by yassir           ###   ########.fr       */
+/*   Updated: 2023/02/05 09:02:54 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static	void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
 	if (stack_size == 2 && !is_sorted(*stack_a))
 		do_sa(stack_a);
 	else if (stack_size == 3)
-		sort_of_3(stack_a)
+		sort_of_3(stack_a);
 	else if (stack_size > 3 && !is_sorted(*stack_a))
 		sort(stack_a, stack_b);
 }
@@ -53,7 +53,8 @@ int main (int ac, char **av)
 	stack_b = NULL;
 	stack_a = fill_stack_by_value(big_str);
 	stack_size = get_stack_size(stack_a);
-	assigne_index(&stack_a, stack_size);
+	assigne_index(stack_a, stack_size);
+	push_swap(&stack_a, &stack_b, stack_size);
 	//printf ("---->%s", big_str);
 	//system("leaks push_swap");
 }

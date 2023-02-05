@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 06:42:59 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/05 07:04:35 by yismaail         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void push_all_save_three(t_stack **stack_a, t_stack **stack_b)
@@ -58,7 +70,7 @@ void sort(t_stack **stack_a, t_stack **stack_b)
     sort_of_3(stack_a);
     while (*stack_b)
     {
-        get_target_position(stack_a, stack_b)
+        get_target_position(stack_a, stack_b);
         get_cost(stack_a, stack_b);
         do_ultimate_move(stack_a, stack_b);
     }

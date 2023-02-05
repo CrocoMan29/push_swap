@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:02:10 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/30 04:31:19 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/05 08:07:35 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,11 @@ void	exit_error(t_stack **stack_a, t_stack **stack_b)
 		free_stack(stack_b);
 	write(2, "ERROR\n", 6);
 	exit(1);
+}
+
+int	nb_abs(int nb)
+{
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
 }

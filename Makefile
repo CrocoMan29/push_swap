@@ -6,7 +6,7 @@
 #    By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 11:24:02 by yismaail          #+#    #+#              #
-#    Updated: 2023/01/30 03:38:06 by yismaail         ###   ########.fr        #
+#    Updated: 2023/02/05 08:50:31 by yismaail         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,9 @@ CFLAGS		=	-Werror -Wextra -Wall -fsanitize=address
 RM			=	rm -rf
 SRCS		=	main.c check_args.c check_args_utils.c \
 				initialisation.c utils.c stack.c \
+				swap.c stack.c sort.c sort_of_3.c \
+				rotate.c reverse_rotate.c push.c \
+				position.c do_move.c cost.c \
 				
 				
 #SRCS_BONUS	=	bonus/pipex_bonus.c \

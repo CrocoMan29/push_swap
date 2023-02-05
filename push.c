@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/05 06:43:23 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/05 09:15:42 by yismaail         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 static void push(t_stack **src, t_stack **dst)
@@ -7,8 +19,8 @@ static void push(t_stack **src, t_stack **dst)
     if (*src == NULL)
         return ;
     tmp = (*src)->next;
-    (*src)->next = *dest;
-    *dest = *src;
+    (*src)->next = *dst;
+    *dst = *src;
     *src = tmp;
 }
 
