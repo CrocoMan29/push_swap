@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 09:58:19 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/04 04:42:01 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:17:04 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 t_stack	*fill_stack_by_value(char *str)
 {
-	t_stack *stack_a;
-	int i;
-	char **sub_str;
-	long int nb;
+	t_stack		*stack_a;
+	int			i;
+	char		**sub_str;
+	long int	nb;
 
 	sub_str = ft_split(str, ' ');
 	i = 0;
@@ -33,6 +33,7 @@ t_stack	*fill_stack_by_value(char *str)
 			stack_add_bottom(&stack_a, stack_new((int)nb));
 		i++;
 	}
+	ft_free_tab(sub_str);
 	return (stack_a);
 }
 
@@ -40,7 +41,7 @@ void	assigne_index(t_stack *stack, int size_stack)
 {
 	t_stack	*ptr;
 	t_stack	*highest;
-	int	value;
+	int		value;
 
 	while (--size_stack > 0)
 	{

@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 07:58:27 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/04 02:05:14 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:31:47 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	arg_is_zero(char *av)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (is_signe(av[i]) == 1)
@@ -28,45 +28,35 @@ static int	arg_is_zero(char *av)
 
 void	input_is_valide(char **av)
 {
-	int i;
-	int j;
-	char **sub_str;
-	int nb_zero;
+	int		i;
+	int		j;
+	char	**sub_str;
+	int		nb_zero;
 
 	i = 0;
 	nb_zero = 0;
-
 	while (av[++i])
 	{
 		if (ft_isempty(av[i]) == 1)
-		{
-			write(2, "ERROR\n", 6);
-			exit(101);
-		}
+			ft_exit();
 		sub_str = ft_split(av[i], ' ');
 		j = -1;
 		while (sub_str[++j])
 		{
 			if (is_number(sub_str[j]) == 0)
-			{
-				free(sub_str);
-				write(2, "ERROR\n", 6);
-				exit(1);
-			}
+				ft_ft_exit(sub_str);
 			nb_zero += arg_is_zero(sub_str[j]);
 		}
 		if (nb_zero > 1)
-		{
-			write(2, "ERROR\n", 6);
-			exit(33);
-		}
+			ft_exit();
+		ft_free_tab(sub_str);
 	}
 }
 
 int	is_number(char *av)
 {
 	int	i;
-	
+
 	i = 0;
 	if (is_signe(av[i]) && av[i + 1] != '\0')
 		i++;
@@ -79,11 +69,11 @@ int	is_number(char *av)
 
 char	*ft_join_all_args(char **av)
 {
-	int i;
-	char *first_join;
+	int		i;
+	char	*first_join;
 
 	i = 1;
-	first_join=NULL;
+	first_join = NULL;
 	while (av[i])
 	{
 		first_join = ft_strjoin(first_join, " ");
@@ -95,10 +85,10 @@ char	*ft_join_all_args(char **av)
 
 int	check_duplicate(char *str)
 {
-	char **num;
-	int i;
-	int j;
-	
+	char	**num;
+	int		i;
+	int		j;
+
 	i = 0;
 	num = ft_split(str, ' ');
 	while (num[i])
@@ -112,5 +102,6 @@ int	check_duplicate(char *str)
 		}
 		i++;
 	}
+	ft_free_tab(num);
 	return (1);
 }

@@ -6,38 +6,37 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 06:43:05 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/05 06:43:05 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:06:13 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-static int find_highest_index(t_stack *stack)
+static int	find_highest_index(t_stack *stack)
 {
-    int index;
+	int	index;
 
-    index = stack->index;
-    while (stack)
-    {
-        if (stack->index > index)
-            index = stack->index;
-        stack = stack->next;
-    }
-    return (index);
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->index > index)
+			index = stack->index;
+		stack = stack->next;
+	}
+	return (index);
 }
 
-void sort_of_3(t_stack**stack)
+void	sort_of_3(t_stack**stack)
 {
-    int highest;
+	int	highest;
 
-    if (is_sorted(*stack))
-        return ;
-    highest = find_highest_index(*stack);
-    if ((*stack)->index == highest)
-        do_ra(stack);
-    else if ((*stack)->next->index == highest)
-        do_rra(stack);
-    if ((*stack)->index > (*stack)->next->index)
-        do_sa(stack);
+	if (is_sorted(*stack))
+		return ;
+	highest = find_highest_index(*stack);
+	if ((*stack)->index == highest)
+		do_ra(stack);
+	else if ((*stack)->next->index == highest)
+		do_rra(stack);
+	if ((*stack)->index > (*stack)->next->index)
+		do_sa(stack);
 }

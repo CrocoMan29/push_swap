@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   blabla.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 06:43:23 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/06 20:08:32 by yismaail         ###   ########.fr       */
+/*   Created: 2023/02/06 18:31:16 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/06 20:27:42 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-static void	push(t_stack **src, t_stack **dst)
+int	get_stack_size(t_stack *stack)
 {
-	t_stack	*tmp;
+	int	i;
 
-	if (*src == NULL)
-		return ;
-	tmp = (*src)->next;
-	(*src)->next = *dst;
-	*dst = *src;
-	*src = tmp;
+	i = 0;
+	if (!stack)
+		return (0);
+	while (stack)
+	{
+		stack = stack->next;
+		i++;
+	}
+	return (i);
 }
 
-void	do_pa(t_stack **stack_a, t_stack **stack_b)
+void	ft_exit(void)
 {
-	push(stack_b, stack_a);
-	ft_putstr_fd("pa\n", 1);
+	write(2, "ERROR\n", 6);
+	exit(101);
 }
 
-void	do_pb(t_stack **stack_a, t_stack **stack_b)
+void	ft_ft_exit(char **str)
 {
-	push(stack_a, stack_b);
-	ft_putstr_fd("pb\n", 1);
+	free(str);
+	ft_exit();
 }

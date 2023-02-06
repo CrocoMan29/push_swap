@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 07:12:53 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/05 09:08:17 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:38:25 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	get_cost(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*tmp_a;
-	t_stack *tmp_b;
-	int size_a;
-	int	size_b;
-	
+	t_stack	*tmp_b;
+	int		size_a;
+	int		size_b;
+
 	tmp_a = *stack_a;
 	tmp_b = *stack_b;
 	size_a = get_stack_size(tmp_a);
@@ -37,10 +37,10 @@ void	get_cost(t_stack **stack_a, t_stack **stack_b)
 
 void	do_ultimate_move(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp;
-	int cheapest;
-	int cost_a;
-	int cost_b;
+	t_stack	*tmp;
+	int		cheapest;
+	int		cost_a;
+	int		cost_b;
 
 	tmp = *stack_b;
 	cheapest = INT_MAX;
@@ -55,4 +55,16 @@ void	do_ultimate_move(t_stack **stack_a, t_stack **stack_b)
 		tmp = tmp->next;
 	}
 	do_move(stack_a, stack_b, cost_a, cost_b);
+}
+
+void	ft_exit(void)
+{
+	write(2, "ERROR\n", 6);
+	exit(101);
+}
+
+void	ft_ft_exit(char **str)
+{
+	free(str);
+	ft_exit();
 }

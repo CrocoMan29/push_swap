@@ -6,17 +6,17 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 10:02:10 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/05 08:07:35 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:00:12 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-long int ft_atoi2(char *nbr)
+long int	ft_atoi2(char *nbr)
 {
-	int i;
-	int signe;
-	long int nb;
+	int			i;
+	int			signe;
+	long int	nb;
 
 	i = 0;
 	nb = 0;
@@ -48,8 +48,8 @@ void	ft_free_tab(char **arr)
 
 void	free_stack(t_stack **stack)
 {
-	t_stack *tmp;
-	
+	t_stack	*tmp;
+
 	if (!stack || !(*stack))
 		return ;
 	while (*stack)

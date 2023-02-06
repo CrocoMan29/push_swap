@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap_b.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/23 07:47:11 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/06 20:16:35 by yismaail         ###   ########.fr       */
+/*   Created: 2023/02/06 09:58:18 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/06 20:25:59 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
-int	is_sorted(t_stack *stack)
+static int	iss_sorted(t_stack *stack)
 {
 	while (stack->next != '\0')
 	{
@@ -23,14 +23,29 @@ int	is_sorted(t_stack *stack)
 	return (1);
 }
 
-static	void	push_swap(t_stack **stack_a, t_stack **stack_b, int stack_size)
+void	free_stack(t_stack **stack)
 {
-	if (stack_size == 2 && !is_sorted(*stack_a))
-		do_sa(stack_a);
-	else if (stack_size == 3)
-		sort_of_3(stack_a);
-	else if (stack_size > 3 && !is_sorted(*stack_a))
-		sort(stack_a, stack_b);
+	t_stack	*tmp;
+
+	if (!stack || !(*stack))
+		return ;
+	while (*stack)
+	{
+		tmp = (*stack)->next;
+		free(*stack);
+		*stack = tmp;
+	}
+	*stack = NULL;
+}
+
+int	is_signe(char c)
+{
+	return (c == '+' || c == '-');
+}
+
+int	is_digit(char c)
+{
+	return (c >= '0' && c <= '9');
 }
 
 int	main(int ac, char **av)
@@ -40,21 +55,22 @@ int	main(int ac, char **av)
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 
-	if (ac < 2)
+	if (ac <= 1)
 		return (0);
 	input_is_valide(av);
 	big_str = ft_join_all_args(av);
 	if (check_duplicate(big_str) == 0)
-	{
-		write(2, "ERROR\n", 6);
-		exit(22);
-	}
+		ft_exit();
 	stack_b = NULL;
 	stack_a = fill_stack_by_value(big_str);
-	stack_size = get_stack_size(stack_a);
-	assigne_index(stack_a, stack_size);
-	push_swap(&stack_a, &stack_b, stack_size);
+	ft_checker(&stack_a, &stack_b);
+	stack_size = get_stack_size(stack_b);
+	if (stack_size == 0 && iss_sorted(stack_a) == 1)
+		write(1, "OK\n", 3);
+	else
+		write (1, "KO\n", 3);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
+	system("leaks checker");
 	return (0);
 }

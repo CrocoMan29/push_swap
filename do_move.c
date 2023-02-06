@@ -6,13 +6,14 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 08:19:48 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/05 09:18:04 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:17:55 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void do_rev_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+static void	do_rev_rotate_both(t_stack **a, t_stack **b, int *cost_a,
+														int *cost_b)
 {
 	while (*cost_a < 0 && *cost_b < 0)
 	{
@@ -22,7 +23,7 @@ static void do_rev_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_
 	}
 }
 
-static void do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
+static void	do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 {
 	while (*cost_a > 0 && *cost_b > 0)
 	{
@@ -32,7 +33,7 @@ static void do_rotate_both(t_stack **a, t_stack **b, int *cost_a, int *cost_b)
 	}
 }
 
-static void do_rotate_a(t_stack **a, int *cost)
+static void	do_rotate_a(t_stack **a, int *cost)
 {
 	while (*cost)
 	{
@@ -49,7 +50,7 @@ static void do_rotate_a(t_stack **a, int *cost)
 	}
 }
 
-static void do_rotate_b(t_stack **b, int *cost)
+static void	do_rotate_b(t_stack **b, int *cost)
 {
 	while (*cost)
 	{
@@ -66,7 +67,7 @@ static void do_rotate_b(t_stack **b, int *cost)
 	}
 }
 
-void do_move(t_stack **a, t_stack **b, int cost_a, int cost_b)
+void	do_move(t_stack **a, t_stack **b, int cost_a, int cost_b)
 {
 	if (cost_a < 0 && cost_b < 0)
 		do_rev_rotate_both(a, b, &cost_a, &cost_b);

@@ -6,13 +6,13 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 08:49:06 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/24 14:27:56 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:20:11 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int is_signe(char c)
+int	is_signe(char c)
 {
 	return (c == '+' || c == '-');
 }
@@ -24,9 +24,9 @@ int	is_digit(char c)
 
 int	nb_cmp(const char *s1, const char *s2)
 {
-	int i;
-	int j;
-	
+	int	i;
+	int	j;
+
 	i = 0;
 	j = i;
 	if (s1[i] == '+')

@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/05 06:42:49 by yismaail          #+#    #+#             */
-/*   Updated: 2023/02/06 20:01:32 by yismaail         ###   ########.fr       */
+/*   Created: 2023/02/06 17:31:00 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/06 20:21:48 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "checker.h"
 
 t_stack	*stack_new(int value)
 {
@@ -29,20 +29,6 @@ t_stack	*stack_new(int value)
 	return (new);
 }
 
-t_stack	*get_tail_of_stack(t_stack *stack)
-{
-	while (stack && stack->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
-t_stack	*get_befor_tail_stack(t_stack *stack)
-{
-	while (stack && stack->next && stack->next->next != NULL)
-		stack = stack->next;
-	return (stack);
-}
-
 void	stack_add_bottom(t_stack **stack, t_stack *new)
 {
 	t_stack	*tail;
@@ -58,17 +44,16 @@ void	stack_add_bottom(t_stack **stack, t_stack *new)
 	tail->next = new;
 }
 
-int	get_stack_size(t_stack *stack)
+t_stack	*get_tail_of_stack(t_stack *stack)
 {
-	int	i;
-
-	i = 0;
-	if (!stack)
-		return (0);
-	while (stack)
-	{
+	while (stack && stack->next != NULL)
 		stack = stack->next;
-		i++;
-	}
-	return (i);
+	return (stack);
+}
+
+t_stack	*get_befor_tail_stack(t_stack *stack)
+{
+	while (stack && stack->next && stack->next->next != NULL)
+		stack = stack->next;
+	return (stack);
 }
